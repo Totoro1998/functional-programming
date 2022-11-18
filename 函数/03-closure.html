@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>closure</title>
+  </head>
+  <body>
+    <script>
+      // 当函数可以记住并访问所在的词法作用域时， 就产生了闭包。
+      // 即使函数是在当前词法作用域之外执行，闭包使得函数可以继续访问定义时的词法作用域。
+      function makePower(power) {
+        return function (number) {
+          return Math.pow(number, power);
+        };
+      }
+
+      // 求平方
+      let power2 = makePower(2); //在断点调试中，let声明的变量作用域会在“脚本中”
+      let power3 = makePower(3);
+
+      console.log(power2(4));
+      console.log(power2(5));
+      console.log(power3(4));
+    </script>
+  </body>
+</html>
